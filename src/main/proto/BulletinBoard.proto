@@ -1,0 +1,30 @@
+syntax = "proto3";
+package com.bulletinboard;
+option java_multiple_files = true;
+
+// Implement Proto File Here
+message object{
+    string key =1;
+    string val = 2;
+}
+message topic{
+    string key = 1;
+}
+message value{
+    string description =1;
+}
+
+message confirmation{
+    string confirm = 1;
+}
+message getList{
+
+    repeated object obj = 1;
+}
+
+service BulletinBoardv{
+    rpc sendNotice(object) returns(confirmation) {}
+    rpc getAllNotice(value) returns(stream object){}
+    rpc getNotice(topic) returns (value) {}
+    rpc deleteTopic(topic) returns(value) {}
+}
