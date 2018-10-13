@@ -10,10 +10,10 @@ public class BulletinBoardServer {
 		// TODO Auto-generated method stub
 
 
-//        Server server = ServerBuilder.forPort(5000)
-//                                        .addService(new BulletinBoardService ())
-//                                        .build().start();
-//
+        Server server = ServerBuilder.forPort(5000)
+                                        .addService(new BulletinBoardService ())
+                                        .build().start();
+
 ////            ///Logger.getLogger("Server started");
 //            System.out.println("Server started");
 //           server.awaitTermination();

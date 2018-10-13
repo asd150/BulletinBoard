@@ -25,8 +25,8 @@ public class BulletinBoardClient{
     }
 	public static <collection> void main(String[] args) throws InvalidProtocolBufferException {
 		// TODO Auto-generated method stub
-//        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost",5000).usePlaintext().build();
-//        BulletinBoardvGrpc.BulletinBoardvBlockingStub stub = BulletinBoardvGrpc.newBlockingStub(channel);
+       ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost",5000).usePlaintext().build();
+        BulletinBoardvGrpc.BulletinBoardvBlockingStub stub = BulletinBoardvGrpc.newBlockingStub(channel);
 
 
     }
