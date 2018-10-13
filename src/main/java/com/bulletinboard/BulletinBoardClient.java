@@ -36,8 +36,6 @@ public class BulletinBoardClient{
             System.out.println("Input a Command");
             Scanner sn = new Scanner(System.in);
             String str = sn.nextLine();
-
-            System.out.println();
             String[] cmd = str.split("\\s+");
 
             if (cmd[0].equalsIgnoreCase("post")) {
