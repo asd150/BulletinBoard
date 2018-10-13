@@ -3,28 +3,59 @@ package com.bulletinboard;
 option java_multiple_files = true;
 
 // Implement Proto File Here
-message object{
-    string key =1;
-    string val = 2;
-}
-message topic{
-    string key = 1;
-}
-message value{
-    string description =1;
-}
+//message object{
+//    string key =1;
+//    string val = 2;
+//}
+//message topic{
+//    string key = 1;
+//}
+//message value{
+//    string description =1;
+//}
+//
+//message confirmation{
+//    string confirm = 1;
+//}
+//message getList{
+//
+//    repeated object obj = 1;
+//}
+//
+//service BulletinBoardv{
+//    rpc sendNotice(object) returns(confirmation) {}
+//    rpc getAllNotice(value) returns(stream object){}
+//    rpc getNotice(topic) returns (value) {}
+//    rpc deleteTopic(topic) returns(value) {}
+//}
 
-message confirmation{
-    string confirm = 1;
-}
-message getList{
+//define the message Title + Body
+message msg{
+     string title = 1;
+     string body = 2;
 
-    repeated object obj = 1;
 }
-
-service BulletinBoardv{
-    rpc sendNotice(object) returns(confirmation) {}
-    rpc getAllNotice(value) returns(stream object){}
-    rpc getNotice(topic) returns (value) {}
-    rpc deleteTopic(topic) returns(value) {}
+// send back the confirmation
+message confirm{
+    string confirmation =1;
+}
+//for delete method
+message delete{
+    string titleGiven = 1;
+}
+//get method
+message get{
+    string getBody =1;
+}
+message list{
+    msg getList = 1;
+}
+//rpc serive
+service BulletinBoardS{
+    //takes title + body
+    //returns confirmation
+    rpc post(msg) returns(confirm);
+    rpc get(confirm) returns (msg);
+    rpc list(confirm) returns(stream msg);
+    rpc delete(confirm) returns(confirm);
 }

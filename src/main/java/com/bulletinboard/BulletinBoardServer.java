@@ -14,9 +14,9 @@ public class BulletinBoardServer {
                                         .addService(new BulletinBoardService ())
                                         .build().start();
 
-////            ///Logger.getLogger("Server started");
-//            System.out.println("Server started");
-//           server.awaitTermination();
+			//Logger.getLogger("Server started");
+            System.out.println("Server started");
+          server.awaitTermination();
 
 
 	}

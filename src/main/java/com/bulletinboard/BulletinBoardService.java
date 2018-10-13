@@ -4,26 +4,45 @@ import io.grpc.stub.StreamObserver;
 
 import java.util.ArrayList;
 import java.util.List;
+class object{
+    private String title;
+    private String body;
+    object(String title,String body){
+        this.title = title;
+        this.body = body;
+    }
+}
+public class BulletinBoardService extends BulletinBoardSGrpc.BulletinBoardSImplBase {
+    //@Override
+//    public void post(msg request, StreamObserver<confirm> responseObserver) {
+//        responseObserver.onNext(confirm.newBuilder().setConfirmation("hello").build());
+//        responseObserver.onNext(confirm.newBuilder().setConfirmation("222222").build());
+//        responseObserver.onCompleted();
+//    }
 
-public class BulletinBoardService extends BulletinBoardvGrpc.BulletinBoardvImplBase {
+    //Global arraylist for storing all messages
+    List<object> lists = new ArrayList<object>();
 
     @Override
-    public void sendNotice(object request, StreamObserver<confirmation> responseObserver) {
-        super.sendNotice(request, responseObserver);
+    public void post(msg request, StreamObserver<confirm> responseObserver) {
+        object newMsg  = new object(request.getTitle(),request.getBody());
+        lists.add(newMsg);
+        responseObserver.onNext(confirm.newBuilder().setConfirmation("Notice Posted").build());
+        responseObserver.onCompleted();
     }
 
     @Override
-    public void getAllNotice(value request, StreamObserver<object> responseObserver) {
-        super.getAllNotice(request, responseObserver);
+    public void get(confirm request, StreamObserver<msg> responseObserver) {
+        super.get(request, responseObserver);
     }
 
     @Override
-    public void getNotice(topic request, StreamObserver<value> responseObserver) {
-        super.getNotice(request, responseObserver);
+    public void list(confirm request, StreamObserver<msg> responseObserver) {
+        super.list(request, responseObserver);
     }
 
     @Override
-    public void deleteTopic(topic request, StreamObserver<value> responseObserver) {
-        super.deleteTopic(request, responseObserver);
+    public void delete(confirm request, StreamObserver<confirm> responseObserver) {
+        super.delete(request, responseObserver);
     }
 }

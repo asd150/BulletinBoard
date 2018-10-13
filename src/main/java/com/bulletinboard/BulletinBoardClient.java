@@ -14,21 +14,23 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 public class BulletinBoardClient{
-    static class object{
-         String key = null;
-         String value = null;
 
-        object(String key,String value){
-            this.key = key;
-            this.value = value;
-        }
-    }
+
 	public static <collection> void main(String[] args) throws InvalidProtocolBufferException {
-		// TODO Auto-generated method stub
+        // TODO Auto-generated method stub
        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost",5000).usePlaintext().build();
-        BulletinBoardvGrpc.BulletinBoardvBlockingStub stub = BulletinBoardvGrpc.newBlockingStub(channel);
+
+        BulletinBoardSGrpc.BulletinBoardSBlockingStub stub = BulletinBoardSGrpc.newBlockingStub(channel);
+
+
+//    Iterator<confirm> it =  stub.post(com.bulletinboard.msg.newBuilder().setTitle("Title").setBody("This is body").build());
+//       int i=1;
+//        while(it.hasNext()){
+//            System.out.println(i + " " + it.next());
+//            i++;
+//        }
+//	}
 
 
     }
-
 }
