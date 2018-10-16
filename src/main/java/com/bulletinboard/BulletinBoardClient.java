@@ -59,6 +59,7 @@ public class BulletinBoardClient{
 
             }
             else {
+
                 break;
 
             }
